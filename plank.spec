@@ -1,19 +1,20 @@
-%define		snap	bzr754
+%define		snap	bzr795
 
 Summary:	Simplest dock on the planet
 Name:		plank
 Version:	0.2.0
-Release:	1
-License:	- (enter GPL/GPL v2/LGPL/BSD/BSD-like/other license name here)
+Release:	2
+License:	GPL v3
 Group:		X11/Applications
 Source0:	%{name}-%{version}-%{snap}.tar.xz
-# Source0-md5:	534fcdb203fa4a1ca7ccb6846552298d
+# Source0-md5:	3ed1927bdb23af3082763592487e1136
 BuildRequires:	bamf-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
+BuildRequires:	vala-vapigen
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	bamf
@@ -41,7 +42,6 @@ with more advanced features.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-#install -d $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
