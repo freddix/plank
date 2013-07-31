@@ -2,22 +2,26 @@
 
 Summary:	Simplest dock on the planet
 Name:		plank
-Version:	0.2.0
+Version:	0.3.0
 Release:	2
 License:	GPL v3
 Group:		X11/Applications
-Source0:	%{name}-%{version}-%{snap}.tar.xz
-# Source0-md5:	3ed1927bdb23af3082763592487e1136
-BuildRequires:	bamf-devel
+#Source0:	%{name}-%{version}-%{snap}.tar.xz
+Source0:	https://launchpad.net/plank/0.3/%{version}/+download/%{name}-%{version}.tar.xz
+# Source0-md5:	feed99165d5698058541e60c6b6353f8
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bamf-devel >= 0.4.1
 BuildRequires:	intltool
+BuildRequires:	libgee-devel
 BuildRequires:	libtool
+BuildRequires:	libwnck-devel
 BuildRequires:	pkg-config
 BuildRequires:	vala-vapigen
+BuildRequires:	xorg-libX11-devel
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	bamf
+Requires:	bamf >= 0.4.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,6 +41,7 @@ with more advanced features.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules	\
 	--disable-shared
 %{__make}
 
@@ -45,6 +50,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/sma
 
 %find_lang %{name}
 
