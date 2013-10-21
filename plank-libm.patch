@@ -1,0 +1,11 @@
+diff -aurN plank-0.4.0.orig/lib/Makefile.am plank-0.4.0/lib/Makefile.am
+--- plank-0.4.0.orig/lib/Makefile.am	2013-10-21 10:59:23.781976486 +0200
++++ plank-0.4.0/lib/Makefile.am	2013-10-21 11:03:37.951741941 +0200
+@@ -56,6 +56,7 @@
+ libplank_la_LIBADD = \
+ 	$(PLANK_CORE_LIBS) \
+ 	$(builddir)/libplank-internal.la \
++	-lm \
+ 	$(NULL)
+ 
+ libplank_la_VALASOURCES = \
