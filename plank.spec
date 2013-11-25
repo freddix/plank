@@ -2,13 +2,13 @@
 
 Summary:	Simplest dock on the planet
 Name:		plank
-Version:	0.4.0
+Version:	0.5.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 #Source0:	%{name}-%{version}-%{snap}.tar.xz
 Source0:	https://launchpad.net/plank/1.0/%{version}/+download/%{name}-%{version}.tar.xz
-# Source0-md5:	ed9b36db698f397e1104318f36837cf5
+# Source0-md5:	3996a47d4c7e1c24a58ccb41a1db5678
 Patch0:		%{name}-libm.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
